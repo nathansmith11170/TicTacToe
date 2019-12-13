@@ -58,9 +58,34 @@ int main()
             }
         }
 
-        //TODO draw board
-        SDL_SetRenderDrawColor(renderer, 70, 0, 0, 0);
+        
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
         SDL_RenderClear(renderer);
+        //draw board
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        int w, h;
+        SDL_GetWindowSize(win, &w, &h);
+        SDL_Rect topDown1, topDown2, across1, across2;
+        topDown1.x = w/3-w/50;
+        topDown1.y = 0;
+        topDown1.h = h;
+        topDown1.w = w/50;
+        topDown2.x = (w/3)*2-w/50;
+        topDown2.y = 0;
+        topDown2.h = h;
+        topDown2.w = w/50;
+        across1.x = 0;
+        across1.y = h/3-h/50;
+        across1.h = h/50;
+        across1.w = w;
+        across2.x = 0;
+        across2.y = (h/3)*2-h/50;
+        across2.h = h/50;
+        across2.w = w;
+        SDL_RenderFillRect(renderer, &topDown1);
+        SDL_RenderFillRect(renderer, &topDown2);
+        SDL_RenderFillRect(renderer, &across1);
+        SDL_RenderFillRect(renderer, &across2);
         SDL_RenderPresent(renderer);
 
         //TODO check board
