@@ -1,0 +1,1 @@
+This is a simple TicTacToe game that plays an optimal game against the player using the minimax algorithm.
