@@ -81,7 +81,7 @@ int main()
     }
 
     /*
-      Test for exes in a column in a row
+      Test for exes in a column
     */
     printf("Test 04 is a column of exes.\n");
     Grid test04;
@@ -103,6 +103,114 @@ int main()
         printf("Test 04 success.\n");
     } else {
         printf("Test 04 failed, result: %d, expected: 0\n", result);
+        testHasFailed = 1;
+    }
+
+    /*
+      Test for zeros in a column
+    */
+    printf("Test 05 is a column of zeros.\n");
+    Grid test05;
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            if(j == 2) {
+                test05.board[i][j] = zero;
+            } else {
+                test05.board[i][j] = empty;
+            }
+            printf("%d ", test05.board[i][j]);
+        }
+        printf("\n");
+    }
+    result = checkGrid(&test05);
+    if(result == zeros) {
+        printf("Test 05 success.\n");
+    } else {
+        printf("Test 05 failed, result: %d, expected: 1\n", result);
+        testHasFailed = 1;
+    }
+
+    /*
+      Test for exes in a diagonal
+    */
+    printf("Test 06 is a column of exes.\n");
+    Grid test06;
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            if(j == i) {
+                test06.board[i][j] = ex;
+            } else {
+                test06.board[i][j] = empty;
+            }
+            printf("%d ", test06.board[i][j]);
+        }
+        printf("\n");
+    }
+    result = checkGrid(&test06);
+    if(result == exes) {
+        printf("Test 06 success.\n");
+    } else {
+        printf("Test 06 failed, result: %d, expected: 0\n", result);
+        testHasFailed = 1;
+    }
+
+    /*
+      Test for zeros in a diagonal
+    */
+    printf("Test 07 is a column of exes.\n");
+    Grid test07;
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            if(j == 0 && i == 2 || j == 1 && i == 1 || j == 2 && i == 0) {
+                test07.board[i][j] = zero;
+            } else {
+                test07.board[i][j] = empty;
+            }
+            printf("%d ", test07.board[i][j]);
+        }
+        printf("\n");
+    }
+    result = checkGrid(&test07);
+    if(result == zeros) {
+        printf("Test 07 success.\n");
+    } else {
+        printf("Test 07 failed, result: %d, expected: 1\n", result);
+        testHasFailed = 1;
+    }
+
+    /*
+      Test for tie
+    */
+    printf("Test 08 is a column of exes.\n");
+    Grid test08;
+    test08.board[0][0] = ex;
+    test08.board[1][1] = zero;
+    test08.board[0][1] = ex;
+    test08.board[0][2] = zero;
+    test08.board[2][0] = ex;
+    test08.board[1][0] = zero;
+    test08.board[1][2] = ex;
+    test08.board[2][1] = zero;
+    test08.board[2][2] = ex;
+    for (int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            printf("%d ", test08.board[i][j]);
+        }
+        printf("\n");
+    }
+    result = checkGrid(&test08);
+    if(result == tie) {
+        printf("Test 08 success.\n");
+    } else {
+        printf("Test 08 failed, result: %d, expected: 2\n", result);
         testHasFailed = 1;
     }
 
