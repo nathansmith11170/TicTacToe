@@ -72,3 +72,16 @@ state checkGrid(Grid *game)
     */
     return tie;
 }
+
+void initGame(Grid *game)
+{
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            game->board[i][j] = empty;
+        }
+    }
+    game->gameState = ongoing;
+    game->playerMove = 0;
+}

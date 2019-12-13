@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "Grid.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
@@ -40,6 +41,8 @@ int main()
     }
     
     SDL_Event e;
+    Grid game;
+    
     int quit = 0;
     while(!quit)
     {

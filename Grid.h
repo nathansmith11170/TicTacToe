@@ -10,5 +10,9 @@ typedef struct {
     int playerMove;
 } Grid;
 
+//Checks the state of the game for a winner or a tie
 state checkGrid(Grid *game);
+
+//initializes the board to an empty game with ex to move
+void initGrid(Grid *game);
 #endif
