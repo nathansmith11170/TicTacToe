@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+#define WINDOW_HEIGHT 800
 int main()
 {
     srand(1241234);
@@ -26,6 +26,8 @@ int main()
         printf("error creating window: %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
+
+    SDL_SetWindowResizable(win, SDL_TRUE);
 
     SDL_Renderer* renderer = SDL_CreateRenderer(win, -1,
                              SDL_RENDERER_ACCELERATED | 

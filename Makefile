@@ -11,5 +11,10 @@ OBJ_NAME = tictactoe
 all: $(OBJS) $(DEPS)
 	$(CC) $(OBJS) $(COMPILER_FLAGS) -o $(OBJ_NAME) $(LINKER_FLAGS)
 
+gridPrototype: gridPrototype.c Grid.o
+	$(CC) gridPrototype.c $(COMPILER_FLAGS) -o gridPrototype $(LINKER_FLAGS) grid.o
+
+Grid.o:
+	$(CC) grid.c -c
 clean:
 	rm -f $(OBJ_NAME) *.o
