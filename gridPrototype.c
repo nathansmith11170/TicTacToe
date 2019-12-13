@@ -9,14 +9,16 @@ int main()
     /*
       Test for an empty grid, should get ongoing as a result.
     */
-   printf("Test 01 is an empty grid. ");
+   printf("Test 01 is an empty grid.\n");
     Grid test01;
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)
         {
             test01.board[i][j] = empty;
+            printf("%d ", test01.board[i][j]);
         }
+        printf("\n");
     }
     state result = checkGrid(&test01);
     if(result == ongoing) {
@@ -29,7 +31,7 @@ int main()
     /*
       Test for exes in a row
     */
-    printf("Test 02 is a row of exes. ");
+    printf("Test 02 is a row of exes.\n");
     Grid test02;
     for(int i = 0; i < 3; i++)
     {
@@ -40,7 +42,9 @@ int main()
             } else {
                 test02.board[i][j] = empty;
             }
+            printf("%d ", test02.board[i][j]);
         }
+        printf("\n");
     }
     result = checkGrid(&test02);
     if(result == exes) {
@@ -53,18 +57,20 @@ int main()
     /*
       Test for zeroes in a row
     */
-    printf("Test 03 is a row of zeroes. ");
+    printf("Test 03 is a row of zeroes.\n");
     Grid test03;
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)
         {
             if(i == 1) {
-                test02.board[i][j] = zero;
+                test03.board[i][j] = zero;
             } else {
-                test02.board[i][j] = empty;
+                test03.board[i][j] = empty;
             }
+            printf("%d ", test03.board[i][j]);
         }
+        printf("\n");
     }
     result = checkGrid(&test03);
     if(result == zeros) {
@@ -77,18 +83,20 @@ int main()
     /*
       Test for exes in a column in a row
     */
-    printf("Test 04 is a column of exes. ");
+    printf("Test 04 is a column of exes.\n");
     Grid test04;
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)
         {
             if(j == 1) {
-                test02.board[i][j] = ex;
+                test04.board[i][j] = ex;
             } else {
-                test02.board[i][j] = empty;
+                test04.board[i][j] = empty;
             }
+            printf("%d ", test04.board[i][j]);
         }
+        printf("\n");
     }
     result = checkGrid(&test04);
     if(result == exes) {
