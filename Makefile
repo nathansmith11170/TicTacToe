@@ -16,5 +16,6 @@ gridPrototype: gridPrototype.c Grid.o
 
 Grid.o:
 	$(CC) grid.c -c
+
 clean:
-	rm -f $(OBJ_NAME) *.o
+	rm -f tictactoe gridPrototype *.o
