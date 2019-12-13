@@ -66,7 +66,7 @@ int main()
             }
         }
     }
-    result = checkGrid(&test02);
+    result = checkGrid(&test03);
     if(result == zeros) {
         printf("Test 03 success.\n");
     } else {
@@ -83,18 +83,18 @@ int main()
     {
         for(int j = 0; j < 3; j++)
         {
-            if(i == 1) {
-                test02.board[i][j] = zero;
+            if(j == 1) {
+                test02.board[i][j] = ex;
             } else {
                 test02.board[i][j] = empty;
             }
         }
     }
-    result = checkGrid(&test02);
-    if(result == zeros) {
-        printf("Test 03 success.\n");
+    result = checkGrid(&test04);
+    if(result == exes) {
+        printf("Test 04 success.\n");
     } else {
-        printf("Test 03 failed, result: %d, expected: 1\n", result);
+        printf("Test 04 failed, result: %d, expected: 0\n", result);
         testHasFailed = 1;
     }
 
