@@ -135,7 +135,7 @@ int main()
     /*
       Test for exes in a diagonal
     */
-    printf("Test 06 is a column of exes.\n");
+    printf("Test 06 is a diagonal of exes.\n");
     Grid test06;
     for(int i = 0; i < 3; i++)
     {
@@ -161,7 +161,7 @@ int main()
     /*
       Test for zeros in a diagonal
     */
-    printf("Test 07 is a column of exes.\n");
+    printf("Test 07 is a diagonal of zeros.\n");
     Grid test07;
     for(int i = 0; i < 3; i++)
     {
@@ -187,7 +187,7 @@ int main()
     /*
       Test for tie
     */
-    printf("Test 08 is a column of exes.\n");
+    printf("Test 08 is a tie.\n");
     Grid test08;
     test08.board[0][0] = ex;
     test08.board[1][1] = zero;

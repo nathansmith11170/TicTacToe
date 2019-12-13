@@ -3,12 +3,13 @@
 #include <SDL2/SDL_timer.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
 int main()
 {
-    srand(1241234);
+    srand(time(0));
 
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         printf("error initializing SDL: %s\n", SDL_GetError());
@@ -46,6 +47,9 @@ int main()
         {
             switch(e.type)
             {
+                case SDL_MOUSEBUTTONUP:
+                    //TODO Handle mouse click
+                    break;
                 case SDL_QUIT:
                     quit = 1;
                     break;
@@ -54,9 +58,12 @@ int main()
             }
         }
 
+        //TODO draw board
         SDL_SetRenderDrawColor(renderer, 70, 0, 0, 0);
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
+
+        //TODO check board
     }
 
     SDL_DestroyWindow(win);
