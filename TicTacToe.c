@@ -8,8 +8,8 @@
 #include "Grid.h"
 #include "MiniMax.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
+#define WINDOW_WIDTH 200
+#define WINDOW_HEIGHT 200
 
 /*
   Draws an ex using the renderer
@@ -144,10 +144,10 @@ int main()
     int w, h;
     Grid game;
     int quit = 0;
-    SDL_GetWindowSize(win, &w, &h);
     initGrid(&game);
     while(!quit)
     {
+        SDL_GetWindowSize(win, &w, &h);
         while(SDL_PollEvent(&e))
         {
             switch(e.type)
