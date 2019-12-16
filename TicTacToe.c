@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Grid.h"
+#include "MiniMax.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
@@ -199,18 +200,13 @@ int main()
         }
         game.gameState = checkGrid(&game);
         //If it is the computer's move, then make a move
-        int done = 0;
-        while(!done && game.playerMove == 1 && game.gameState == ongoing)
+        if(game.playerMove == 1)
         {
-            int randx = rand() % 3;
-            int randy = rand() % 3;
-
-            if(game.board[randx][randy] == empty)
-            {
-                game.board[randx][randy] = zero;
-                done = 1;
-                game.playerMove = 0;
-            }
+            Coord move;
+            bestMove(&move, &game);
+            game.board[move.x][move.y] = zero;
+            game.playerMove = 0;
+            
         }
         
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

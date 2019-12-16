@@ -86,7 +86,6 @@ void bestMove(Coord *move, Grid *game)
                     temp.board[i][j] = ex;
                     temp.playerMove = 1;
                     moveScore = miniMax(&temp);
-                    printf("Score for move (%d,%d) is %d\n", i, j, moveScore);
                     if(moveScore == 1)
                     {
                         move->x = i;
@@ -105,7 +104,6 @@ void bestMove(Coord *move, Grid *game)
                     temp.board[i][j] = zero;
                     temp.playerMove = 0;
                     moveScore = miniMax(&temp);
-                    printf("Score for move (%d,%d) is %d\n", i, j, moveScore);
                     if(moveScore == -1)
                     {
                         move->x = i;
