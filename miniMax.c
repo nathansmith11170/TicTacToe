@@ -26,7 +26,7 @@ int miniMax(Grid *game)
     //Otherwise if ex is moving, we maximize
     if(game->playerMove == 0)
     {
-        int value = -1;
+        int value = -2;
         for(int i = 0; i < 3; i++)
         {
             for(int j = 0; j < 3; j++)
@@ -34,6 +34,7 @@ int miniMax(Grid *game)
                 if(game->board[i][j] == empty){
                     Grid temp = *game;
                     temp.board[i][j] = ex;
+                    temp.playerMove = 1;
                     int tempValue = miniMax(&temp);
                     if(tempValue > value)
                     {
@@ -48,7 +49,7 @@ int miniMax(Grid *game)
     //Zeros minimize
     else
     {
-        int value = 1;
+        int value = 2;
         for(int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
@@ -57,6 +58,7 @@ int miniMax(Grid *game)
                 {
                     Grid temp = *game;
                     temp.board[i][j] = zero;
+                    temp.playerMove = 0;
                     int tempValue = miniMax(&temp);
                     if(tempValue < value)
                     {
@@ -85,13 +87,13 @@ void bestMove(Coord *move, Grid *game)
                     temp.playerMove = 1;
                     moveScore = miniMax(&temp);
                     printf("Score for move (%d,%d) is %d\n", i, j, moveScore);
-                    if(goingForATie && moveScore == 1)
+                    if(moveScore == 1)
                     {
                         move->x = i;
                         move->y = j;
                         goingForATie = 0;
                     }
-                    else if(moveScore == 0)
+                    else if(goingForATie && moveScore == 0)
                     {
                         move->x = i;
                         move->y = j;
@@ -104,13 +106,13 @@ void bestMove(Coord *move, Grid *game)
                     temp.playerMove = 0;
                     moveScore = miniMax(&temp);
                     printf("Score for move (%d,%d) is %d\n", i, j, moveScore);
-                    if(goingForATie && moveScore == -1)
+                    if(moveScore == -1)
                     {
                         move->x = i;
                         move->y = j;
                         goingForATie = 0;
                     }
-                    else if(moveScore == 0)
+                    else if(goingForATie && moveScore == 0)
                     {
                         move->x = i;
                         move->y = j;
