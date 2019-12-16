@@ -73,11 +73,11 @@ state checkGrid(Grid *game)
     return tie;
 }
 
-void initGame(Grid *game)
+void initGrid(Grid *game)
 {
-    for(i = 0; i < 3; i++)
+    for(int i = 0; i < 3; i++)
     {
-        for(j = 0; j < 3; j++)
+        for(int j = 0; j < 3; j++)
         {
             game->board[i][j] = empty;
         }
