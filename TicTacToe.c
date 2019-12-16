@@ -184,11 +184,10 @@ int main()
                             game.board[x][y] = ex;
                             game.playerMove = 1;
                         }
-                        else
-                        {
-                            game.board[x][y] = zero;
-                            game.playerMove = 0;
-                        }
+                    }
+                    if(game.gameState != ongoing)
+                    {
+                        initGrid(&game);
                     }
                     break;
                 case SDL_QUIT:
@@ -198,7 +197,21 @@ int main()
                 default: {}
             }
         }
+        game.gameState = checkGrid(&game);
+        //If it is the computer's move, then make a move
+        int done = 0;
+        while(!done && game.playerMove == 1 && game.gameState == ongoing)
+        {
+            int randx = rand() % 3;
+            int randy = rand() % 3;
 
+            if(game.board[randx][randy] == empty)
+            {
+                game.board[randx][randy] = zero;
+                done = 1;
+                game.playerMove = 0;
+            }
+        }
         
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
@@ -237,7 +250,6 @@ int main()
             }
         }
         SDL_RenderPresent(renderer);
-
         game.gameState = checkGrid(&game);
     }
 
