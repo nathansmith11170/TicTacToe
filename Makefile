@@ -14,8 +14,14 @@ all: grid.o
 gridPrototype: grid.o
 	$(CC) gridPrototype.c $(COMPILER_FLAGS) -o gridPrototype $(LINKER_FLAGS) grid.o
 
+miniMaxPrototype: grid.o miniMax.o
+	$(CC) miniMaxPrototype.c $(COMPILER_FLAGS) -o miniMaxPrototype $(LINKER_FLAGS) grid.o miniMax.o
+
 grid.o:
 	$(CC) grid.c -c
 
+miniMax.o:
+	$(CC) miniMax.c -c
+
 clean:
-	rm -f tictactoe gridPrototype *.o
+	rm -f tictactoe gridPrototype miniMaxPrototype *.o
